@@ -9,4 +9,19 @@ Gateway for PrintED project
   - BLE
     - [bluepy](https://github.com/IanHarvey/bluepy)
     - bluez
-  - MQTT
+  - Mqtt
+
+## Get started
+  - Use Python 3
+  - Install
+  
+    ```bash
+      $ sudo apt-get install python3-pip libglib2.0-dev
+      $ sudo pip3 install bluepy
+      $ sudo pip3 install paho-mqtt 
+    ```
+  - How to run
+
+    ```bash
+      $ sudo python3 run.py
+    ```
