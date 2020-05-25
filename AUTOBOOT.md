@@ -39,7 +39,6 @@
   - Change sleep time to boot without fault
   - This way is not good
 
-
 ## systemd
 
 - Reference
@@ -48,9 +47,11 @@
   - https://raspberrypi.stackexchange.com/questions/72287/paho-mqtt-error-during-autorun?rq=1
   - https://github.com/coreos/bugs/issues/1966#issuecomment-301825679
   - https://www.freedesktop.org/software/systemd/man/systemd.service.html
+  - https://unix.stackexchange.com/questions/225401/how-to-see-full-log-from-systemctl-status-service
 
 - Create a service
-    ```
+
+    ```bash
     sudo vim /etc/systemd/system/mqtt.service
     ```
 
@@ -64,7 +65,7 @@
     [Service]
     Type=simple
     ExecStartPre=/bin/sh -c 'until ping -c1 192.168.2.162; do sleep 1; done;'
-    ExecStart=/usr/bin/python3 /home/pi/mqtt.py >>/home/pi/log.txt 2>&1
+    ExecStart=/usr/bin/python3 /home/pi/mqtt.py
 
     [Install]
     WantedBy=multi-user.target

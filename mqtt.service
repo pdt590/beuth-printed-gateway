@@ -6,7 +6,7 @@
     [Service]
     Type=simple
     ExecStartPre=/bin/sh -c 'until ping -c1 192.168.2.162; do sleep 1; done;'
-    ExecStart=/usr/bin/python3 /home/pi/mqtt.py >>/home/pi/log.txt 2>&1
+    ExecStart=/usr/bin/python3 /home/pi/mqtt.py
 
     [Install]
     WantedBy=multi-user.target
