@@ -64,7 +64,7 @@
 
     [Service]
     Type=simple
-    ExecStartPre=/bin/sh -c 'until ping -c1 192.168.2.162; do sleep 1; done;'
+    ExecStartPre=/bin/sh -c 'until ping -c1 192.168.2.176; do sleep 1; done;'
     ExecStart=/usr/bin/python3 /home/pi/mqtt.py
 
     [Install]
@@ -78,6 +78,9 @@
     sudo systemctl enable mqtt.service
 
     # test
+    sudo python3 run.py
+
+    # or
     sudo systemctl start mqtt.service
     sudo systemctl status mqtt.service
     sudo systemctl stop mqtt.service

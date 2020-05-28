@@ -9,12 +9,16 @@ import threading
 import paho.mqtt.client as mqttClient
 import time
 
+import json
+
 #
 # MQTT
 #
 Connected = False   #global variable for the state of the connection
-broker_address= "192.168.2.162"
+broker_address= "192.168.2.176"
 port = 1883
+user = "mqttuser"
+password = "mqttpassword"
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -25,6 +29,7 @@ def on_connect(client, userdata, flags, rc):
         print("Connection failed")
 
 client = mqttClient.Client("Gateway")
+client.username_pw_set(user, password=password)
 client.on_connect= on_connect
 client.connect(broker_address, port=port)
 
@@ -48,7 +53,7 @@ class NotificationDelegate(DefaultDelegate):
 
     def handleNotification(self, cHandle, data):
         print(data)
-        client.publish("sensor",data)
+        client.publish("sensors/test",data)
 
 class ConnectionHandlerThread (threading.Thread):
     def __init__(self, connection_index):
