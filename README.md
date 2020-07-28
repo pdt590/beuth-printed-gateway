@@ -23,5 +23,7 @@ Gateway for PrintED project
   - How to run
 
     ```bash
-      $ sudo python3 run.py
+      $ sudo python3 mqtt.py
     ```
+  - How to make `mqtt.py` auto boot up
+    - [autoboot](https://github.com/pdt590/beuth-printed-gateway/blob/master/AUTOBOOT.md)
