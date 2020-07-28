@@ -78,7 +78,7 @@
     sudo systemctl enable mqtt.service
 
     # test
-    sudo python3 run.py
+    sudo python3 mqtt.py
 
     # or
     sudo systemctl start mqtt.service
