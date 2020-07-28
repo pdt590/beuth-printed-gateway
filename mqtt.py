@@ -15,7 +15,7 @@ import json
 # MQTT
 #
 Connected = False   #global variable for the state of the connection
-broker_address= "192.168.2.176"
+broker_address= "141.64.29.79"
 port = 1883
 user = "mqttuser"
 password = "mqttpassword"

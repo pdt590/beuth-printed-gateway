@@ -20,10 +20,16 @@ Gateway for PrintED project
       $ sudo pip3 install bluepy
       $ sudo pip3 install paho-mqtt 
     ```
+
+  - Change MQTT Broker IP
+    - [mqtt.py](https://github.com/pdt590/beuth-printed-gateway/blob/master/mqtt.py#L18)
+    - [mqtt.service](https://github.com/pdt590/beuth-printed-gateway/blob/master/mqtt.service#L8)
+  
   - How to run
 
     ```bash
       $ sudo python3 mqtt.py
     ```
+
   - How to make `mqtt.py` auto boot up
     - [autoboot](https://github.com/pdt590/beuth-printed-gateway/blob/master/AUTOBOOT.md)
