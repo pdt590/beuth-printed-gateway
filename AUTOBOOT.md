@@ -39,7 +39,7 @@
   - Change sleep time to boot without fault
   - This way is not good
 
-## systemd
+## systemd (Recommend)
 
 - Reference
   - https://www.raspberrypi.org/documentation/linux/usage/systemd.md
