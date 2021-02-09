@@ -85,6 +85,12 @@
     sudo systemctl status mqtt.service
     sudo systemctl stop mqtt.service
     ```
+- Check service status
+    ```
+    sudo systemctl status mqtt.service
+    # or
+    sudo systemd-analyze verify mqtt.service
+    ```
 
 - Notes
   - Change MQTT Server IP
