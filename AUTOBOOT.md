@@ -64,7 +64,7 @@
 
     [Service]
     Type=simple
-    ExecStartPre=/bin/sh -c 'until ping -c1 192.168.2.176; do sleep 1; done;'
+    ExecStartPre=/bin/sh -c 'until ping -c1 192.168.50.3; do sleep 1; done;'
     ExecStart=/usr/bin/python3 /home/pi/mqtt.py
 
     [Install]

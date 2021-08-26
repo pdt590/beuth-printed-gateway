@@ -15,10 +15,12 @@ import json
 # MQTT
 #
 Connected = False   #global variable for the state of the connection
-broker_address= "141.64.29.79"
+broker_address= "192.168.50.3"
 port = 1883
 user = "mqttuser"
 password = "mqttpassword"
+
+bleUUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a8'
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -53,7 +55,8 @@ class NotificationDelegate(DefaultDelegate):
 
     def handleNotification(self, cHandle, data):
         print(data)
-        client.publish("sensors/test",data)
+        jsonData = json.loads(data)
+        client.publish("sensors/"+jsonData["id"],data)
 
 class ConnectionHandlerThread (threading.Thread):
     def __init__(self, connection_index):
@@ -66,7 +69,7 @@ class ConnectionHandlerThread (threading.Thread):
 
         # enable notification
         setup_data = b"\x01\x00"
-        notify = connection.getCharacteristics(uuid='beb5483e-36e1-4688-b7f5-ea07361b26a8')[0]
+        notify = connection.getCharacteristics(uuid=bleUUID)[0]
         notify_handle = notify.getHandle() + 1
         connection.writeCharacteristic(notify_handle, setup_data, withResponse=True)
 
@@ -85,7 +88,7 @@ try:
         print('\nScanning...')
         devices = scanner.scan(5, passive=True)
         for d in devices:
-            if d.getValueText(9) and "ESP32" in d.getValueText(9):
+            if d.getValueText(9) and "Clip" in d.getValueText(9):
                 print('\nAddress:'+d.addr)
                 p = Peripheral(d)
                 p.setMTU(256)
